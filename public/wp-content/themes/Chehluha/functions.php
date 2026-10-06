@@ -4,6 +4,7 @@ add_action('after_setup_theme', function() {add_theme_support('woocommerce');});
 add_action('after_setup_theme', 'add_menu');
     function add_menu() {
         register_nav_menu('top', 'Головне меню');
+        register_nav_menu('bottom', 'Меню футер');
     }
 
 add_action('wp_enqueue_scripts', 'add_scripts_and_styles');

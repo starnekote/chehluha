@@ -113,42 +113,14 @@
 
             <div class="footer__categories-list">
 
-                <div class="footer__categories-column">
-
-                    <a href="#" class="footer__category">
-                        Кобури для зброї
-                    </a>
-
-                    <a href="#" class="footer__category">
-                        Чохли для IQOS / Сносу
-                    </a>
-
-                    <a href="#" class="footer__category">
-                        Підсумки для балонів
-                    </a>
-
-                    <a href="#" class="footer__category">
-                        Кастомні принти
-                    </a>
-
-                </div>
-
-
-                <div class="footer__categories-column">
-
-                    <a href="#" class="footer__category">
-                        Підсумки під магазини
-                    </a>
-
-                    <a href="#" class="footer__category">
-                        Кріплення для ножів
-                    </a>
-
-                    <a href="#" class="footer__category">
-                        Підсумки для канадок
-                    </a>
-
-                </div>
+            <?php
+                wp_nav_menu( [
+                    'theme_location'  => 'bottom', //ідентифікатор нашого меню
+                    'menu'            => '', //меню яке потрібно вивести
+                    'container'       => 'div', //чим огортати тег ul
+                    'container_class' => 'footer_menu', //клас контейнера меню
+                ] );
+            ?>
 
             </div>
 

@@ -12,42 +12,32 @@
     <div class="ticker">
         <div class="ticker-track">
 
-            <div class="ticker-group">
-                <?php 
-                    $posts = get_posts([
-                        'numberposts' => -1,
-                        'category_name' => 'news',
-                        'post_type' => 'post',
-                        'suppress_filters' => true
-                        ]);
-                    foreach($posts as $post) {
-                        setup_postdata($post);
-                ?>  
-                    <span><?php the_content(); ?></span>
-                <?php
-                }
-                wp_reset_postdata();
-                ?>
-            </div>
+ <?php
+$news_posts = get_posts([
+    'numberposts'    => -1,
+    'category_name'  => 'news',
+    'post_type'      => 'post',
+    'post_status'    => 'publish',
+    'suppress_filters' => true,
+]);
+?>
 
-              <!-- Копія для безперервної анімації -->
-            <div class="ticker-group">
-                <?php 
-                    $posts = get_posts([
-                        'numberposts' => -1,
-                        'category_name' => 'news',
-                        'post_type' => 'post',
-                        'suppress_filters' => true
-                        ]);
-                    foreach($posts as $post) {
-                        setup_postdata($post);
-                ?>  
-                    <span><?php the_content(); ?></span>
-                <?php
-                }
-                wp_reset_postdata();
-                ?>
-            </div>
+    <div class="ticker-group">
+        <?php foreach ( $news_posts as $news_post ) : ?>
+            <span>
+                <?php echo wp_kses_post( wpautop( get_the_content( '', false, $news_post ) ) ); ?>
+            </span>
+        <?php endforeach; ?>
+    </div>
+
+    <!-- Копія для безперервної анімації -->
+    <div class="ticker-group">
+        <?php foreach ( $news_posts as $news_post ) : ?>
+            <span>
+                <?php echo wp_kses_post( wpautop( get_the_content( '', false, $news_post ) ) ); ?>
+            </span>
+        <?php endforeach; ?>
+    </div>
 
         </div>
     </div>
