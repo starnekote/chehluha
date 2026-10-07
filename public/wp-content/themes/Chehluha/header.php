@@ -44,11 +44,20 @@ $news_posts = get_posts([
     <header>
         <div class="container">
             <div class="icons-left">
-                <a class="burger">
+                <button
+                    class="burger"
+                    type="button"
+                    aria-label="Відкрити меню"
+                    aria-controls="header-sidebar"
+                    aria-expanded="false"
+                >
                     <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0 12V10H18V12H0ZM0 7V5H18V7H0ZM0 2V0H18V2H0Z" fill="currentColor" />
+                        <path
+                            d="M0 12V10H18V12H0ZM0 7V5H18V7H0ZM0 2V0H18V2H0Z"
+                            fill="currentColor"
+                        />
                     </svg>
-                </a>
+                </button>
                 <a class="search">
                     <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -78,3 +87,33 @@ $news_posts = get_posts([
             </div>
         </div>
     </header>
+<div class="header-widget-overlay"></div>
+
+<aside
+    id="header-sidebar"
+    class="header-widget-area"
+    aria-hidden="true"
+>
+    <div class="header-widget-area__inner">
+
+        <button
+            class="header-widget-area__close"
+            type="button"
+            aria-label="Закрити меню"
+        >
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M2 2L16 16M16 2L2 16"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                />
+            </svg>
+        </button>
+
+        <?php if ( is_active_sidebar( 'header-widget' ) ) : ?>
+            <?php dynamic_sidebar( 'header-widget' ); ?>
+        <?php endif; ?>
+
+    </div>
+</aside>

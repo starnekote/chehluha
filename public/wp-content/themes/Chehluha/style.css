@@ -88,6 +88,12 @@ ul {
       font-size: 10px;
   }
 
+  button {
+    background-color: transparent;
+    border: none;
+    color: var(--color-text-main);
+  }
+
   .container {
     width: 358px;
     margin: 0 auto;
@@ -175,6 +181,292 @@ header .logo {
   font-size: 2rem;
   color: #D4C95E;
   align-self: center;
+}
+
+/* =========================================
+   HEADER SIDEBAR
+========================================= */
+
+.header-widget-area {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+
+    width: 32rem;
+    max-width: 85vw;
+    height: 100dvh;
+
+    box-sizing: border-box;
+
+    padding: 2rem;
+
+    background-color: var(--color-background-container);
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    transform: translate3d(-100%, 0, 0);
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        transform 0.3s ease,
+        visibility 0.3s ease;
+}
+
+
+/* =========================================
+   OPEN STATE
+========================================= */
+
+.header-widget-area.is-open {
+    transform: translate3d(0, 0, 0);
+
+    visibility: visible;
+    pointer-events: auto;
+}
+
+
+/* =========================================
+   SIDEBAR INNER
+========================================= */
+
+.header-widget-area__inner {
+    position: relative;
+
+    width: 100%;
+    min-height: 100%;
+
+    padding-top: 5rem;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   CLOSE BUTTON
+========================================= */
+
+.header-widget-area__close {
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 3.2rem;
+    height: 3.2rem;
+
+    padding: 0;
+
+    border: 0;
+    background: transparent;
+
+    color: var(--color-text-main);
+
+    cursor: pointer;
+
+    transition: color 0.2s ease;
+}
+
+.header-widget-area__close:hover {
+    color: var(--color-accent-orange);
+}
+
+.header-widget-area__close svg {
+    display: block;
+
+    width: 1.8rem;
+    height: 1.8rem;
+}
+
+
+/* =========================================
+   OVERLAY
+========================================= */
+
+.header-widget-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    background-color: rgba(0, 0, 0, 0.55);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+}
+
+.header-widget-overlay.is-open {
+    opacity: 1;
+
+    visibility: visible;
+    pointer-events: auto;
+}
+
+
+/* =========================================
+   BODY LOCK
+========================================= */
+
+body.menu-open {
+    overflow: hidden;
+}
+
+
+/* =========================================
+   WIDGET
+========================================= */
+
+.header-widget-area .widget {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* =========================================
+   WOOCOMMERCE PRODUCT CATEGORIES
+========================================= */
+
+.header-widget-area .wc-block-product-categories {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Main list */
+
+.header-widget-area .wc-block-product-categories-list {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+
+/* =========================================
+   CATEGORY ITEM
+========================================= */
+
+.header-widget-area
+.wc-block-product-categories-list-item {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+    border-bottom: 1px solid rgba(233, 226, 204, 0.12);
+}
+
+
+/* =========================================
+   CATEGORY LINK
+========================================= */
+
+.header-widget-area
+.wc-block-product-categories-list-item > a {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 1.4rem 0;
+
+    font-family: "Plex Mono", monospace;
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1.5;
+
+    color: var(--color-text-main);
+
+    text-decoration: none;
+
+    transition:
+        color 0.2s ease,
+        padding-left 0.2s ease;
+}
+
+.header-widget-area
+.wc-block-product-categories-list-item > a:hover {
+    padding-left: 0.6rem;
+
+    color: var(--color-accent-orange);
+}
+
+
+/* =========================================
+   HIDE PRODUCT COUNT
+========================================= */
+
+.header-widget-area
+.wc-block-product-categories-list-item-count {
+    display: none;
+}
+
+
+/* =========================================
+   SUBCATEGORIES
+========================================= */
+
+.header-widget-area
+.wc-block-product-categories-list--depth-1 {
+    margin: 0;
+    padding: 0 0 1rem 1.6rem;
+
+    list-style: none;
+}
+
+.header-widget-area
+.wc-block-product-categories-list--depth-1
+.wc-block-product-categories-list-item {
+    border: 0;
+}
+
+
+/* Subcategory links */
+
+.header-widget-area
+.wc-block-product-categories-list--depth-1
+.wc-block-product-categories-list-item > a {
+    padding: 0.8rem 0;
+
+    font-family: "Jet Brains", monospace;
+    font-size: 1.1rem;
+    font-weight: 400;
+
+    color: var(--color-text-muted);
+}
+
+.header-widget-area
+.wc-block-product-categories-list--depth-1
+.wc-block-product-categories-list-item > a:hover {
+    padding-left: 0.4rem;
+
+    color: var(--color-text-main);
+}
+
+
+/* =========================================
+   REMOVE DEFAULT LIST STYLES
+========================================= */
+
+.header-widget-area ul,
+.header-widget-area ol,
+.header-widget-area li {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
 }
 
 /* Базові змінні кольорів макету */
@@ -1592,10 +1884,19 @@ html {
     margin-bottom: 2.8rem;
 }
 
+.footer__location {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    color: var(--color-text-muted);
+    text-decoration: none;
+}
+
 
 .footer__contact {
     display: flex;
     align-items: flex-start;
+    flex-wrap: wrap;
     gap: 1rem;
     color: var(--color-text-muted);
     text-decoration: none;
