@@ -485,7 +485,7 @@ body.menu-open {
   background-color: var(--color-background-container);
   border-radius: 1.2rem;
   padding: 1.6rem 1.6rem 3.2rem 1.6rem;
-  display: flex;
+  display: flex !important;
   flex-direction: column;
   gap: 1.6rem;
   box-sizing: border-box;
@@ -1129,7 +1129,7 @@ html {
     flex-direction: column;
 
     box-sizing: border-box;
-    height: auto;
+    height: fit-content;
     min-height: 100%;
 
     padding: 0.8rem;
@@ -1321,7 +1321,7 @@ html {
     font-size: 1.2rem;
     font-weight: 400;
     line-height: 1;
-
+    text-decoration: line-through;
     color: var(--color-text-muted);
 }
 
@@ -2110,6 +2110,7 @@ html {
     flex-wrap: wrap;
     gap: 0.8rem;
     margin-bottom: 1.8rem;
+    text-transform: uppercase;
 }
 
 

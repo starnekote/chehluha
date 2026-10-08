@@ -75,8 +75,8 @@
                     <h2 class="arsenal__title">КАТЕГОРІЇ СПОРЯДЖЕННЯ</h2>
                 </div>
 
-                <a href="#" class="arsenal__all">
-                    <span>ВСІ (38)</span>
+                <a href="<?php echo esc_url( wc_get_page_permalink( 'shop' ) ); ?>" class="arsenal__all">
+                    <span>всі (<?php echo wp_count_posts( 'product' )->publish; ?>)</span>
                     <span class="arsenal__arrow">
                         <svg viewBox="0 0 5 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M3.06667 4L0 0.933333L0.933333 0L4.93333 4L0.933333 8L0 7.06667L3.06667 4Z"

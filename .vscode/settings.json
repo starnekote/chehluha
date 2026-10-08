@@ -1,0 +1,10 @@
+{
+    "phpTools.parallelismLimit": 2,
+
+    "php.files.exclude": {
+        "**/wp-content/uploads/**": true,
+        "**/wp-content/cache/**": true,
+        "**/wp-content/upgrade/**": true,
+        "**/wp-content/backups/**": true
+    }
+}

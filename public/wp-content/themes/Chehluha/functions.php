@@ -160,9 +160,6 @@ function chehluha_category_menu_item_title($title, $item, $args, $depth)
 
             <h3 class="category-card__title">
                 ' . esc_html($category_name) . '
-                <span class="category-card__count-bracket">
-                    (' . $product_count . ')
-                </span>
             </h3>
 
             <p class="category-card__description">
