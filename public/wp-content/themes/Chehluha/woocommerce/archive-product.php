@@ -18,7 +18,9 @@
 defined( 'ABSPATH' ) || exit;
 
 get_header( 'shop' );
-
+?>
+<div class="container">
+<?php
 /**
  * Hook: woocommerce_before_main_content.
  *
@@ -38,7 +40,9 @@ do_action( 'woocommerce_before_main_content' );
 do_action( 'woocommerce_shop_loop_header' );
 
 if ( woocommerce_product_loop() ) {
-
+	?>
+	<div class="ordering-filtration">
+	<?php
 	/**
 	 * Hook: woocommerce_before_shop_loop.
 	 *
@@ -47,6 +51,13 @@ if ( woocommerce_product_loop() ) {
 	 * @hooked woocommerce_catalog_ordering - 30
 	 */
 	do_action( 'woocommerce_before_shop_loop' );
+
+	 if ( is_active_sidebar( 'filtration-widget' ) ) : 
+            dynamic_sidebar( 'filtration-widget' ); 
+        endif; 
+	?>
+	</div>
+	<?php
 
 	woocommerce_product_loop_start();
 
@@ -87,11 +98,8 @@ if ( woocommerce_product_loop() ) {
  */
 do_action( 'woocommerce_after_main_content' );
 
-/**
- * Hook: woocommerce_sidebar.
- *
- * @hooked woocommerce_get_sidebar - 10
- */
-do_action( 'woocommerce_sidebar' );
+?>
+</div>
+<?php
 
 get_footer( 'shop' );

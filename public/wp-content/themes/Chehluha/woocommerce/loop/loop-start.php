@@ -18,5 +18,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+
+$catalog_class = ( is_shop() || is_product_category() ) ? 'category-page-ul' : '';
 ?>
-<ul class="products swiper-wrapper columns-<?php echo esc_attr( wc_get_loop_prop( 'columns' ) ); ?>">
+<ul class="products <?php echo esc_attr( $catalog_class ); ?> swiper-wrapper columns-<?php echo esc_attr( wc_get_loop_prop( 'columns' ) ); ?>">

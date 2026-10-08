@@ -23,8 +23,10 @@ global $product;
 if (!is_a($product, WC_Product::class) || !$product->is_visible()) {
 	return;
 }
+
+$catalog_class = ( is_shop() || is_product_category() ) ? 'category-page' : '';
 ?>
-<li class="swiper-slide product-card" <?php wc_product_class('', $product); ?>>
+<li class="swiper-slide product-card <?php echo esc_attr( $catalog_class ); ?>" <?php wc_product_class('', $product); ?>>
 	<?php
 	/**
 	 * Hook: woocommerce_before_shop_loop_item.

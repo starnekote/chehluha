@@ -19,6 +19,11 @@ function chehluha_widgets_init() {
         'after_title'   => '',
     ]);
 
+    register_sidebar([
+        'name'          => 'Фільтрація',
+        'id'            => 'filtration-widget'
+    ]);
+
 }
 
 add_action( 'widgets_init', 'chehluha_widgets_init' );
@@ -202,4 +207,14 @@ function chehluha_category_menu_item_title($title, $item, $args, $depth)
     return $html;
 }
 
+add_filter( 'woocommerce_breadcrumb_defaults', function() {
+    return array(
+        'delimiter'   => ' <span class="breadcrumb-separator">/</span> ',
+        'wrap_before' => '<nav class="woocommerce-breadcrumb" aria-label="Breadcrumb">',
+        'wrap_after'  => '</nav>',
+        'before'      => '<span class="breadcrumb-current">',
+        'after'       => '</span>',
+        'home'        => _x( 'Головна', 'breadcrumb', 'woocommerce' ),
+    );
+} );
 ?>

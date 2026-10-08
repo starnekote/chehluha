@@ -1115,7 +1115,7 @@ html {
 }
 
 .products-slider .swiper-slide {
-    height: auto;
+    height: fit-content;
     box-sizing: border-box;
 }
 
@@ -1124,28 +1124,32 @@ html {
    PRODUCT CARD
 ========================================= */
 
-.products-slider .product-card {
+.product-card {
     display: flex;
     flex-direction: column;
-
     box-sizing: border-box;
     height: fit-content;
     min-height: 100%;
-
     padding: 0.8rem;
-
     background-color: var(--color-background-container);
     border-radius: 1.2rem;
-
     overflow: hidden;
 }
 
+.category-page {
+    width: 48% !important;
+}
+
+.category-page-ul {
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
 
 /* =========================================
    PRODUCT LINK / MAIN CONTENT
 ========================================= */
 
-.products-slider .product-card > .woocommerce-loop-product__link {
+.product-card > .woocommerce-loop-product__link {
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -1160,8 +1164,7 @@ html {
 /* =========================================
    IMAGE
 ========================================= */
-
-.products-slider .product-card > .woocommerce-loop-product__link img {
+.product-card > .woocommerce-loop-product__link img {
     display: block;
 
     width: 100%;
@@ -1179,7 +1182,7 @@ html {
    SALE BADGE
 ========================================= */
 
-.products-slider .product-card .onsale {
+.product-card .onsale {
     position: absolute;
     top: 1.6rem;
     left: 1.6rem;
@@ -1213,7 +1216,7 @@ html {
    RATING
 ========================================= */
 
-.products-slider .product-card__review {
+.product-card__review {
     display: flex;
     align-items: center;
     gap: 0.6rem;
@@ -1228,7 +1231,7 @@ html {
     color: var(--color-gold);
 }
 
-.products-slider .product-card__star {
+.product-card__star {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -1239,7 +1242,7 @@ html {
     color: var(--color-gold);
 }
 
-.products-slider .product-card__star svg {
+.product-card__star svg {
     display: block;
 
     width: 100%;
@@ -1251,7 +1254,7 @@ html {
    PRODUCT TITLE
 ========================================= */
 
-.products-slider .woocommerce-loop-product__title {
+.woocommerce-loop-product__title {
     margin: 0;
 
     font-family: "Plex Mono", monospace;
@@ -1269,7 +1272,7 @@ html {
    DESCRIPTION
 ========================================= */
 
-.products-slider .product-card__description {
+.product-card__description {
     min-height: 4.8rem;
 
     margin-top: 0.4rem;
@@ -1287,7 +1290,7 @@ html {
    PRICE
 ========================================= */
 
-.products-slider .product-card .price {
+.product-card .price {
     display: flex;
     align-items: baseline;
     flex-wrap: wrap;
@@ -1307,14 +1310,14 @@ html {
 
 /* Current price */
 
-.products-slider .product-card .price .amount {
+.product-card .price .amount {
     color: var(--color-accent-orange);
 }
 
 
 /* Old price */
 
-.products-slider .product-card .price del {
+.product-card .price del {
     order: 2;
 
     font-family: "Jet Brains", monospace;
@@ -1325,21 +1328,21 @@ html {
     color: var(--color-text-muted);
 }
 
-.products-slider .product-card .price del .amount {
+.product-card .price del .amount {
     color: var(--color-text-muted);
 }
 
 
 /* Sale/current price */
 
-.products-slider .product-card .price ins {
+.product-card .price ins {
     order: 1;
 
     color: var(--color-accent-orange);
     text-decoration: none;
 }
 
-.products-slider .product-card .price ins .amount {
+.product-card .price ins .amount {
     color: var(--color-accent-orange);
 }
 
@@ -1348,7 +1351,7 @@ html {
    CURRENCY
 ========================================= */
 
-.products-slider .product-card .woocommerce-Price-currencySymbol {
+.product-card .woocommerce-Price-currencySymbol {
     color: inherit;
 }
 
@@ -1357,7 +1360,7 @@ html {
    ADD TO CART / PRODUCT BUTTON
 ========================================= */
 
-.products-slider .product-card > .button {
+.product-card > .button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1392,12 +1395,12 @@ html {
         transform 0.2s ease;
 }
 
-.products-slider .product-card > .button:hover {
+.product-card > .button:hover {
     background-color: #403d2b;
     color: var(--color-gold);
 }
 
-.products-slider .product-card > .button:active {
+.product-card > .button:active {
     transform: scale(0.98);
 }
 
@@ -1406,8 +1409,8 @@ html {
    EXTERNAL / GROUPED PRODUCTS
 ========================================= */
 
-.products-slider .product-card .product_type_external,
-.products-slider .product-card .product_type_grouped {
+.product-card .product_type_external,
+.product-card .product_type_grouped {
     min-height: 5rem;
 }
 
@@ -1416,7 +1419,7 @@ html {
    ACCESSIBILITY TEXT
 ========================================= */
 
-.products-slider .product-card .screen-reader-text {
+.product-card .screen-reader-text {
     position: absolute;
 }
 
@@ -1425,12 +1428,12 @@ html {
    REMOVE DEFAULT WOOCOMMERCE SPACING
 ========================================= */
 
-.products-slider .product-card::before,
-.products-slider .product-card::after {
+.product-card::before,
+.product-card::after {
     display: none;
 }
 
-.products-slider .product-card > a:first-child {
+.product-card > a:first-child {
     margin-bottom: 0;
 }
 
@@ -1439,7 +1442,7 @@ html {
    SWIPER NAVIGATION FIX
 ========================================= */
 
-.products-slider .swiper-slide {
+.swiper-slide {
     margin-top: 0;
 }
 
@@ -2199,6 +2202,374 @@ html {
     .footer__category {
         font-size: 1.3rem;
     }
+}
+
+/* ==========================================
+   ХЛІБНІ КРИХТИ (BREADCRUMBS)
+   ========================================== */
+.woocommerce-breadcrumb {
+  font-family: 'Tinos';
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Посилання ("Головна", "Каталог товарів") */
+.woocommerce-breadcrumb a {
+  color: var(--color-text-main);
+  text-decoration: none;
+}
+
+.woocommerce-breadcrumb a:hover {
+  color: var(--color-gold);
+}
+
+/* Золоті роздільники / */
+.woocommerce-breadcrumb .breadcrumb-separator {
+  color: var(--color-gold);
+  margin: 0 0.4rem;
+}
+
+/* Останній текстовий елемент - червоний */
+.woocommerce-breadcrumb .breadcrumb-current {
+  color: var(--color-accent-orange); /* Або акцентний: var(--color-accent-orange, #FE5F00) */
+}
+
+/* ==========================================
+   ЗАГОЛОВОК СТОРІНКИ (HEADER TITLE)
+   ========================================== */
+.woocommerce-products-header {
+  margin: 1.6rem 0 0.8rem 0;
+}
+
+.woocommerce-products-header__title.page-title {
+  font-family: 'Tinos';
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-text-main);
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.04em;
+}
+
+/* Помаранчевий префікс // перед заголовком */
+.woocommerce-products-header__title.page-title::before {
+  content: '// ';
+  color: var(--color-accent-orange);
+  margin-right: 1rem;
+  font-family: var(--font-title);
+}
+
+/* Опис товару / підзаголовок (якщо є) */
+.woocommerce-products-header p,
+.woocommerce-products-header .page-description {
+  font-family: 'Jet Brains';
+  font-size: 1.2rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* ==========================================
+   ПАНЕЛЬ СОРТУВАННЯ ТА ФІЛЬТРІВ (TOOLBAR)
+   ========================================== */
+   .ordering-filtration {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.6rem;
+   }
+
+.woocommerce-ordering {
+    width: 70%;
+}
+
+.woocommerce-ordering select.orderby {
+  font-family: var(--font-title);
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: var(--color-block-bg);
+  color: var(--color-text-main);
+  border: 1px solid rgba(233, 226, 204, 0.1);
+  padding: 1.2rem 3.6rem 1.2rem 1.6rem;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%23D4C95E' height='16' viewBox='0 0 24 24' width='16' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 1.2rem center;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.woocommerce-ordering select.orderby:hover,
+.woocommerce-ordering select.orderby:focus {
+  border-color: var(--color-gold);
+  outline: none;
+}
+
+.woocommerce-ordering select.orderby option {
+  background-color: var(--color-background-container);
+  color: var(--color-text-main);
+}
+
+/* ==========================================
+   КНОПКА ВІДКРИТТЯ ФІЛЬТРІВ
+   ========================================== */
+.widget_block {
+width: 30%;
+}
+
+.wc-block-product-filters__open-overlay {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  background-color: var(--color-accent-orange);
+  color: #FFFFFF;
+  font-family: var(--font-title);
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: none;
+  padding: 1.2rem 2rem;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.wc-block-product-filters__open-overlay:hover {
+  opacity: 0.9;
+}
+
+.wc-block-product-filters__open-overlay svg {
+  fill: currentColor;
+  width: 1.8rem;
+  height: 1.8rem;
+}
+
+/* ==========================================
+   МОДАЛЬНЕ ВІКНО ФІЛЬТРІВ (OVERLAY)
+   ========================================== */
+.wc-block-product-filters__overlay-dialog {
+  background-color: var(--color-background-container);
+  color: var(--color-text-main);
+  padding: 2.4rem;
+  border: 1px solid rgba(233, 226, 204, 0.15);
+  max-width: 42rem;
+  width: 100%;
+}
+
+.wc-block-product-filters__overlay-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1.6rem;
+}
+
+.wc-block-product-filters__close-overlay {
+  background: transparent;
+  border: none;
+  color: var(--color-text-muted);
+  font-family: var(--font-label);
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+}
+
+.wc-block-product-filters__close-overlay:hover {
+  color: var(--color-text-main);
+}
+
+/* Метки розділів (Section Labels) */
+.wp-block-heading,
+.wc-block-product-filters__overlay-content h2.wp-block-heading {
+  font-family: var(--font-title);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  text-transform: uppercase;
+  margin-bottom: 2rem !important;
+}
+
+.wp-block-woocommerce-product-filter-price h3.wp-block-heading,
+.wp-block-woocommerce-product-filter-rating h3.wp-block-heading,
+.wp-block-woocommerce-product-filter-status h3.wp-block-heading {
+  font-family: var(--font-label);
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-gold);
+  margin-bottom: 1.2rem !important;
+}
+
+/* ==========================================
+   ФІЛЬТР ЦІНИ (SLIDER)
+   ========================================== */
+.wc-block-product-filter-price-slider__range {
+  position: relative;
+  height: 0.4rem;
+  background-color: var(--color-block-bg);
+  margin: 2rem 0;
+}
+
+.wc-block-product-filter-price-slider__range .range-bar {
+  background-color: var(--color-accent-orange);
+  height: 100%;
+}
+
+.wc-block-product-filter-price-slider__range input[type="range"] {
+  accent-color: var(--color-accent-orange);
+}
+
+.wc-block-product-filter-price-slider__left input,
+.wc-block-product-filter-price-slider__right input {
+  background-color: var(--color-block-bg);
+  border: 1px solid rgba(233, 226, 204, 0.2);
+  color: var(--color-text-main);
+  font-family: var(--font-body);
+  font-size: 1.3rem;
+  padding: 0.6rem 1rem;
+  width: 8rem;
+  text-align: center;
+}
+
+/* ==========================================
+   ЧЕКБОКСИ (РЕЙТИНГ, НАЯВНІСТЬ)
+   ========================================== */
+.wc-block-product-filter-checkbox-list fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.wc-block-product-filter-checkbox-list__item {
+  margin-bottom: 1rem;
+}
+
+.wc-block-product-filter-checkbox-list__label {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 1.3rem;
+  color: var(--color-text-main);
+}
+
+.wc-block-product-filter-checkbox-list__input {
+  appearance: none;
+  width: 1.8rem;
+  height: 1.8rem;
+  border: 1px solid var(--color-text-muted);
+  background-color: var(--color-block-bg);
+  cursor: pointer;
+  position: relative;
+}
+
+.wc-block-product-filter-checkbox-list__input:checked {
+  background-color: var(--color-accent-orange);
+  border-color: var(--color-accent-orange);
+}
+
+.wc-block-product-filter-checkbox-list__stars-svg {
+  color: var(--color-gold);
+}
+
+/* ==========================================
+   КНОПКА ЗАСТОСУВАННЯ ФІЛЬТРІВ
+   ========================================== */
+.wc-block-product-filters__apply {
+  background-color: var(--color-accent-orange);
+  color: #FFFFFF;
+  font-family: var(--font-title);
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: none;
+  width: 100%;
+  padding: 1.4rem;
+  cursor: pointer;
+  margin-top: 2rem;
+  transition: opacity 0.2s ease;
+}
+
+.wc-block-product-filters__apply:hover {
+  opacity: 0.9;
+}
+
+/* ==========================================
+   СТИЛІ ПАГІНАЦІЇ WOOCOMMERCE
+   ========================================== */
+
+/* Контейнер пагінації */
+.woocommerce-pagination {
+  display: flex;
+  justify-content: center;
+  margin: 3rem 0;
+}
+
+.woocommerce-pagination ul.page-numbers {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* Відстань між кнопками 10px */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.woocommerce-pagination ul.page-numbers li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Базовий стиль кнопки пагінації (за замовчуванням) */
+.woocommerce-pagination .page-numbers {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.8rem;  /* 48px */
+  height: 4.8rem; /* 48px */
+  background-color: var(--color-block-bg, #2B2816);
+  color: var(--color-text-main, #E9E2CC);
+  font-family: 'Tinos', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  text-decoration: none;
+  line-height: 1;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  box-sizing: border-box;
+}
+
+/* Активна сторінка (помаранчевий блок) */
+.woocommerce-pagination .page-numbers.current {
+  background-color: var(--color-accent-orange, #FE5F00);
+  color: #FFFFFF;
+}
+
+/* Стрілки навігації (назад / вперед) */
+.woocommerce-pagination .page-numbers.prev,
+.woocommerce-pagination .page-numbers.next {
+  color: var(--color-gold, #D4C95E);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 2.2rem;
+}
+
+/* Ефекти наведення для неактивних посилань */
+.woocommerce-pagination a.page-numbers:hover {
+  background-color: var(--color-accent-orange, #FE5F00);
+  color: #FFFFFF;
+}
+
+.woocommerce-pagination a.page-numbers.prev:hover,
+.woocommerce-pagination a.page-numbers.next:hover {
+  color: #FFFFFF;
 }
 
 }
