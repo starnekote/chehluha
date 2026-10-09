@@ -1833,6 +1833,7 @@ html {
     background-color: var(--color-background-container);
     overflow: hidden;
     padding: 3.2rem 0 4.8rem;
+    margin-top: 3.2rem;
 }
 
 
@@ -2240,6 +2241,7 @@ html {
    ========================================== */
 .woocommerce-products-header {
   margin: 1.6rem 0 0.8rem 0;
+  padding: 0;
 }
 
 .woocommerce-products-header__title.page-title {
@@ -2286,40 +2288,40 @@ html {
 }
 
 .woocommerce-ordering select.orderby {
-  font-family: var(--font-title);
-  font-size: 1.4rem;
+  font-family: 'Tinos';
+  font-size: 1.2rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  background-color: var(--color-block-bg);
+  background-color: #383526;
   color: var(--color-text-main);
-  border: 1px solid rgba(233, 226, 204, 0.1);
   padding: 1.2rem 3.6rem 1.2rem 1.6rem;
+  border: none;
   cursor: pointer;
   appearance: none;
   -webkit-appearance: none;
   background-image: url("data:image/svg+xml;utf8,<svg fill='%23D4C95E' height='16' viewBox='0 0 24 24' width='16' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
   background-repeat: no-repeat;
   background-position: right 1.2rem center;
-  transition: border-color 0.2s ease, background-color 0.2s ease;
+  transition: background-color 0.2s ease;
 }
 
 .woocommerce-ordering select.orderby:hover,
 .woocommerce-ordering select.orderby:focus {
-  border-color: var(--color-gold);
   outline: none;
 }
 
 .woocommerce-ordering select.orderby option {
   background-color: var(--color-background-container);
   color: var(--color-text-main);
+  border: none;
 }
 
 /* ==========================================
    КНОПКА ВІДКРИТТЯ ФІЛЬТРІВ
    ========================================== */
 .widget_block {
-width: 30%;
+width: fit-content;
 }
 
 .wc-block-product-filters__open-overlay {
@@ -2329,8 +2331,8 @@ width: 30%;
   gap: 0.8rem;
   background-color: var(--color-accent-orange);
   color: #FFFFFF;
-  font-family: var(--font-title);
-  font-size: 1.4rem;
+  font-family: 'Tinos';
+  font-size: 1.2rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -2353,13 +2355,19 @@ width: 30%;
 /* ==========================================
    МОДАЛЬНЕ ВІКНО ФІЛЬТРІВ (OVERLAY)
    ========================================== */
+.wc-block-product-filters__overlay {
+    height: 70vh;
+    width: 100%;
+}
+
 .wc-block-product-filters__overlay-dialog {
-  background-color: var(--color-background-container);
+  background-color: #383526;
   color: var(--color-text-main);
   padding: 2.4rem;
-  border: 1px solid rgba(233, 226, 204, 0.15);
+  border: none;
   max-width: 42rem;
   width: 100%;
+  height: fit-content;
 }
 
 .wc-block-product-filters__overlay-header {
@@ -2570,6 +2578,143 @@ width: 30%;
 .woocommerce-pagination a.page-numbers.prev:hover,
 .woocommerce-pagination a.page-numbers.next:hover {
   color: #FFFFFF;
+}
+
+/* ==========================================
+   ІНЛАЙН ФІЛЬТРИ (БЕЗ ОВЕРЛЕЮ ТА КНОПКИ)
+   ========================================== */
+.filtration-result {
+    margin-bottom: 1.6rem;
+   }
+
+/* 1. Повністю приховуємо кнопку "Фільтр", шапку, футер та кнопку очищення */
+.filtration-result .wc-block-product-filters__open-overlay,
+.filtration-result .wc-block-product-filters__overlay-header,
+.filtration-result .wc-block-product-filters__overlay-footer,
+.filtration-result .wp-block-woocommerce-product-filter-clear-button {
+  display: none !important;
+}
+
+/* 2. Скидаємо модальне/висувне позиціонування оверлею */
+.filtration-result .wc-block-product-filters__overlay,
+.filtration-result .wc-block-product-filters__overlay-wrapper,
+.filtration-result .wc-block-product-filters__overlay-dialog {
+  position: static !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  width: auto !important;
+  max-width: none !important;
+  height: auto !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  transform: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  overflow: visible !important;
+}
+
+/* 3. Головний контейнер фільтрів у рядок */
+.filtration-result .wc-block-product-filter-removable-chips__items {
+  display: flex !important;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem; /* Відстань між плашками 10px */
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* 4. Напис "ФІЛЬТРИ:" перед плашками */
+.filtration-result .wc-block-product-filter-removable-chips__items::before {
+  content: "ФІЛЬТРИ:";
+  font-family: 'Tinos';
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  margin-right: 0.6rem;
+}
+
+/* 5. Стилізація плашок активних фільтрів (квадратні блоки) */
+.filtration-result .wc-block-product-filter-removable-chips__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: #383526;
+  padding: 0.8rem 1.4rem;
+  margin: 0;
+  border: none;
+}
+
+/* 6. Текст всередині плашки */
+.filtration-result .wc-block-product-filter-removable-chips__label {
+  font-family: 'Plex Mono';
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-main);
+  line-height: 1;
+}
+
+/* 7. Кнопка та помаранчевий хрестик (×) видалення */
+.filtration-result .wc-block-product-filter-removable-chips__remove {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filtration-result .wc-block-product-filter-removable-chips__remove-icon,
+.filtration-result .wc-block-product-filter-removable-chips__remove svg {
+  width: 1.4rem !important;
+  height: 1.4rem !important;
+  fill: var(--color-accent-orange, #FE5F00) !important;
+  color: var(--color-accent-orange, #FE5F00) !important;
+  transition: transform 0.2s ease;
+}
+
+.filtration-result .wc-block-product-filter-removable-chips__remove:hover svg {
+  transform: scale(1.2);
+}
+
+/* 1. Відновлюємо прийом подій миші для контейнерів фільтрів */
+.filtration-result .wc-block-product-filters__overlay,
+.filtration-result .wc-block-product-filters__overlay-wrapper,
+.filtration-result .wc-block-product-filters__overlay-dialog,
+.filtration-result .wc-block-product-filters__overlay-content,
+.filtration-result .wp-block-woocommerce-product-filter-active,
+.filtration-result .wc-block-product-filter-removable-chips,
+.filtration-result .wc-block-product-filter-removable-chips__item {
+  pointer-events: auto !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* 2. Забезпечуємо інтерактивність та вищий шар (z-index) для кнопки видалення */
+.filtration-result .wc-block-product-filter-removable-chips__remove {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  position: relative !important;
+  z-index: 10 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* 3. Пропускаємо клік крізь SVG безпосередньо на тег <button> */
+.filtration-result .wc-block-product-filter-removable-chips__remove svg,
+.filtration-result .wc-block-product-filter-removable-chips__remove-icon {
+  pointer-events: none !important;
 }
 
 }

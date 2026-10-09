@@ -58,6 +58,9 @@ if ( woocommerce_product_loop() ) {
 	?>
 	</div>
 	<?php
+	if ( is_active_sidebar( 'filtration-result' ) ) : 
+		dynamic_sidebar( 'filtration-result' ); 
+	endif; 
 
 	woocommerce_product_loop_start();
 

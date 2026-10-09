@@ -20,8 +20,15 @@ function chehluha_widgets_init() {
     ]);
 
     register_sidebar([
-        'name'          => 'Фільтрація',
+        'name'          => 'Фільтрація сайдбар',
         'id'            => 'filtration-widget'
+    ]);
+
+    register_sidebar([
+        'name'          => 'Результати фільтрації',
+        'id'            => 'filtration-result',
+        'before_widget' => '<div class="filtration-result">',
+        'after_widget'  => '</div>'
     ]);
 
 }
@@ -217,4 +224,39 @@ add_filter( 'woocommerce_breadcrumb_defaults', function() {
         'home'        => _x( 'Головна', 'breadcrumb', 'woocommerce' ),
     );
 } );
+
+add_filter( 'woocommerce_catalog_orderby', 'custom_remove_sorting_options' );
+function custom_remove_sorting_options( $options ) {
+    
+    // Приклади опцій (назви ключів):
+    // 'menu_order' — стандартне сортування
+    // 'popularity' — за популярністю
+    // 'rating' — за рейтингом
+    // 'date' — нові надходження
+    // 'price' — ціна ↑
+    // 'price-desc' — ціна ↓
+
+    // Видаляємо зайві
+    unset( $options['popularity'] );
+
+    $options['menu_order'] = 'Сортування';
+    $options['date'] = 'Найновіші';
+    $options['rating']      = 'За рейтингом';
+    $options['price']      = 'Дешеві';
+    $options['price-desc'] = 'Дорогі';
+   
+
+    return $options;
+}
+
+add_filter( 'gettext', 'chehluha_change_filter_button_text', 20, 3 );
+
+function chehluha_change_filter_button_text( $translated, $text, $domain ) {
+
+    if ( $domain === 'woocommerce' && $translated === 'Фільтрувати товари' ) {
+        return 'Фільтр';
+    }
+
+    return $translated;
+}
 ?>
