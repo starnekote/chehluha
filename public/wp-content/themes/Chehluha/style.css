@@ -1267,7 +1267,9 @@ html {
     text-transform: uppercase;
 }
 
-
+.category-page-ul .woocommerce-loop-product__title {
+    font-size: 1rem;
+}
 /* =========================================
    DESCRIPTION
 ========================================= */
@@ -1283,6 +1285,9 @@ html {
     line-height: 1.8;
 
     color: var(--color-text-muted);
+}
+.category-page-ul .product-card__description {
+    font-size: 1rem;
 }
 
 
@@ -1305,6 +1310,10 @@ html {
     line-height: 2.4rem;
 
     color: var(--color-accent-orange);
+}
+
+.category-page-ul .product-card .price {
+    font-size: 1.2rem;
 }
 
 
@@ -2356,8 +2365,13 @@ width: fit-content;
    МОДАЛЬНЕ ВІКНО ФІЛЬТРІВ (OVERLAY)
    ========================================== */
 .wc-block-product-filters__overlay {
-    height: 70vh;
+    height: auto;
     width: 100%;
+}
+
+.wc-block-product-filters__overlay header,
+.wc-block-product-filters__overlay footer {
+    background-color: transparent;
 }
 
 .wc-block-product-filters__overlay-dialog {
@@ -2368,11 +2382,18 @@ width: fit-content;
   max-width: 42rem;
   width: 100%;
   height: fit-content;
+  height: fit-content !important;
+    max-height: 90vh !important;
+    top: auto !important;
+    margin-top: auto !important;
+    border-radius: 20px 20px 0 0 !important;
+    overflow-y: auto;
+    box-sizing: border-box;
 }
 
 .wc-block-product-filters__overlay-header {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   margin-bottom: 1.6rem;
 }
 
@@ -2526,7 +2547,7 @@ width: fit-content;
 .woocommerce-pagination ul.page-numbers {
   display: flex;
   align-items: center;
-  gap: 1rem; /* Відстань між кнопками 10px */
+  gap: 0.8rem; /* Відстань між кнопками 10px */
   list-style: none;
   padding: 0;
   margin: 0;
@@ -2538,25 +2559,30 @@ width: fit-content;
 }
 
 /* Базовий стиль кнопки пагінації (за замовчуванням) */
-.woocommerce-pagination .page-numbers {
+.woocommerce-pagination ul.page-numbers li {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 4.8rem;  /* 48px */
-  height: 4.8rem; /* 48px */
+  width: 4rem;  /* 48px */
+  height: 4rem; /* 48px */
   background-color: var(--color-block-bg, #2B2816);
-  color: var(--color-text-main, #E9E2CC);
-  font-family: 'Tinos', serif;
-  font-size: 2rem;
-  font-weight: 700;
-  text-decoration: none;
-  line-height: 1;
+
   transition: background-color 0.2s ease, color 0.2s ease;
   box-sizing: border-box;
 }
 
+.woocommerce-pagination ul.page-numbers li a,
+.woocommerce-pagination ul.page-numbers li span {
+  color: var(--color-text-main, #E9E2CC);
+  font-family: 'Plex Mono', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-decoration: none;
+  line-height: 1;
+}
+
 /* Активна сторінка (помаранчевий блок) */
-.woocommerce-pagination .page-numbers.current {
+.woocommerce-pagination ul li:has(span.current) {
   background-color: var(--color-accent-orange, #FE5F00);
   color: #FFFFFF;
 }
@@ -2570,10 +2596,6 @@ width: fit-content;
 }
 
 /* Ефекти наведення для неактивних посилань */
-.woocommerce-pagination a.page-numbers:hover {
-  background-color: var(--color-accent-orange, #FE5F00);
-  color: #FFFFFF;
-}
 
 .woocommerce-pagination a.page-numbers.prev:hover,
 .woocommerce-pagination a.page-numbers.next:hover {
